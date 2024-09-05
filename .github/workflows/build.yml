@@ -1,0 +1,23 @@
+name: Build
+run-name: 'Build ${{ github.ref_name }} by ${{ github.actor }}'
+
+on:
+  push:
+    branches: ['main']
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - run: cargo build --release
+      - uses: tweedegolf/create-tag-action@main
+      - uses: tweedegolf/build-container-image@main
+        with:
+          file: Dockerfile
+          pull: true
+          push: true
+          tags: ghcr.io/${{ github.repository}}:${{ env.tag }}
+          build-args: VERSION=${{ env.tag }}
