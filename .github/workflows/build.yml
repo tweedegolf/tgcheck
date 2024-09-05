@@ -19,5 +19,4 @@ jobs:
           file: Dockerfile
           pull: true
           push: true
-          tags: ghcr.io/${{ github.repository}}:${{ env.tag }}
-          build-args: VERSION=${{ env.tag }}
+          tags: ghcr.io/${{ github.repository}}:latest
