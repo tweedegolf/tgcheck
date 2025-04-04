@@ -10,7 +10,7 @@ WORKDIR /app
 USER app
 
 # copy executable
-COPY tgcheck.$TARGETARCH /usr/local/bin/tgcheck
+COPY bin/tgcheck.$TARGETARCH /usr/local/bin/tgcheck
 RUN chmod 0755 /usr/local/bin/tgcheck
 
 # run tgcheck
