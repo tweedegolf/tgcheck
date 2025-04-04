@@ -1,6 +1,7 @@
 FROM ghcr.io/tweedegolf/debian:bookworm
 
 ARG TARGETARCH
+ARG VERSION
 
 RUN useradd -c "Application" -m -U app
 ENV ROOT_SWITCH_USER=app
@@ -10,7 +11,7 @@ WORKDIR /app
 USER app
 
 # copy executable
-COPY bin/tgcheck.$TARGETARCH /usr/local/bin/tgcheck
+COPY ./bin/tgcheck.$TARGETARCH /usr/local/bin/tgcheck
 RUN chmod 0755 /usr/local/bin/tgcheck
 
 # run tgcheck
