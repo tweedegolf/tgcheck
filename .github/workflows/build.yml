@@ -42,7 +42,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: tgcheck.${{ matrix.docker_arch }}
+          name: tgcheck-${{ matrix.docker_arch }}
           path: bin/tgcheck.${{ matrix.docker_arch }}
           if-no-files-found: error
 
