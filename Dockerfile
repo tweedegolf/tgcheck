@@ -12,7 +12,6 @@ USER app
 
 # copy executable
 COPY ./bin/tgcheck-$TARGETARCH/tgcheck.$TARGETARCH /usr/local/bin/tgcheck
-RUN chmod 0755 /usr/local/bin/tgcheck
 
 # run tgcheck
 CMD ["/usr/local/bin/tgcheck"]

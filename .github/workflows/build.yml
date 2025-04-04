@@ -70,7 +70,10 @@ jobs:
         with:
           path: bin
 
-      - run: ls -a -R bin/
+      - name: Make binaries executable
+        run: |
+          chmod +x bin/tgcheck-arm64/tgcheck.arm64
+          chmod +x bin/tgcheck-amd64/tgcheck.amd64
 
       - name: Log in to the container registry
         uses: docker/login-action@v3
