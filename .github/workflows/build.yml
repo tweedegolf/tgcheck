@@ -36,6 +36,7 @@ jobs:
       - name: Build
         run: |
           cross build --release --target ${{ matrix.rust_arch }}
+          mkdir -p bin
           mv target/${{ matrix.rust_arch }}/release/tgcheck bin/tgcheck.${{ matrix.docker_arch }}
 
       - name: Upload artifacts
