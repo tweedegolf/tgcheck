@@ -29,7 +29,7 @@ jobs:
           toolchain: stable
 
       - name: Install cross
-        uses: taiki-e/install-action@f8a64c940979268d3ab5ac99c178e718ed90977d # v2.32.14
+        uses: taiki-e/install-action@v2
         with:
           tool: cross
 
@@ -39,7 +39,7 @@ jobs:
           mv target/${{ matrix.rust_arch }}/release/tgcheck tgcheck.${{ matrix.docker_arch }}
 
       - name: Upload artifacts
-        uses: actions/upload-artifact@4
+        uses: actions/upload-artifact@v4
         with:
           name: tgcheck-${{ matrix.rust_arch }}
           path: tgcheck.${{ matrix.docker_arch }}
